@@ -1,0 +1,1 @@
+SELECT * FROM teste.tb_funcionarios;

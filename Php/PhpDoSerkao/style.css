@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    font-family: "Berlin Sans FB";
+    background-color: #1d911d;
+    color: white;
+    border-radius: 8px;
+    border: 0;
+    height: 5vh;
+    width: 7vw;
+    font-size: 20px;
+}
+
+form {
+    padding: 10px 10px 10px;
+}
+
+input {
+    border: 0;
+    border-radius: 8px;
+    height: 3vh;
+}
+
+label {
+    font-weight: bold;
+    font-family: "Bahnschrift";
+    font-size: 20px;
+}
+
+input {
+    padding: 10px 10px 10px;
+    font-family: "Bahnschrift";
+    font-size: 18px;
+}
+
+
+.cadastro {
+    border-color: black;
+    border: 1px;
+    margin-top: 10vh;
+    border-radius: 20px;
+    background-color: antiquewhite;
+}
+
+
