@@ -5,7 +5,7 @@ const cors = require("cors");
 const db = mysql.createPool({
     host:"localhost",
     user:"root",
-    password:"root",
+    password:"",
     database:"produtoscrud"
 });
 
@@ -14,16 +14,42 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.post("/cadastro", (req,res)=>{
+    const { name } = req.body;
+    const { cost } = req.body;
+    const { category } = req.body;
+
+    let sql = "INSERT INTO produtos( name,cost,category ) VALUES (?,?,?)"
+
+    db.query(sql,[name, cost, category],(err,result) => {
+        console.log(err);
+    });
+})
+
+app.get("/getCards", (req,res)=>{
+    
+    let sql = "SELECT * FROM produtos";
+
+    db.query(sql, (err,result)=>{
+        if (err) console.log(err);
+        else res.send(result);
+    })
+})
 
 app.listen(3001, ()=>{
     console.log("Rodando o servidor");
 });
 
-// app.get('/', (req,res)=>{
-    
-//     let sql = "INSERT INTO produtos( id,name,cost,category ) VALUES ( 1,'Racao Cachorro 10KG','80','Cachorro' )";
+app.put("/edit", (req,res) => {
+    const { id } = req.body;
+    const { name } = req.body;
+    const { cost } = req.body;
+    const { category } = req.body;
 
-//     db.query(sql,(err,result)=>{
-//         console.log(err);
-//     });
-// });
+    let sql = "UPDATE produtos name = ?, cost = ?, category = ?, WHERE id = ?"
+
+    db.query(sql, (err,result)=>{
+        if (err) console.log(err);
+        else res.send(result);
+    })
+})
