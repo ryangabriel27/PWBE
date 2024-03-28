@@ -6,16 +6,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
 public class IndexController {
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    public ModelAndView abrirIndex() {
-        ModelAndView mv = new ModelAndView("index");
-        String mensagem = "Olá Seja Bem Vinda(o) !";
-        mv.addObject("msg", mensagem);
-        return mv;
+    @GetMapping("/home")
+    public String acessoHome() {
+        return "index";
     }
 
+    @GetMapping("/admlog")
+    public String acessoLoginAdm() {
+        return "login/admlog";
+    }
+
+    @GetMapping("/admcad")
+    public String acessoCadastroAdm() {
+        return "cadastro/admcad";
+    }
+    
+    
 }

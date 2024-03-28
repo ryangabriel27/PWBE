@@ -6,10 +6,11 @@ import jakarta.persistence.*;
 
 
 @Entity
-public class AdministradorModel implements Serializable {
+public class Administradores implements Serializable {
 
     @Id // Isso indica que o campo é uma chave primária
     private String cpf;
+    
     private String nome;
     private String email;
     private String senha;
