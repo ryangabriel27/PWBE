@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Interna</title>
+    <div th:include="~{fragmentos/head-interna}"></div>
+    <link rel="stylesheet" th:href="@{css/style-aluno.css}">
+</head>
+
+<body>
+    <div th:insert="~{fragmentos/header-interna :: header}"></div>
+    <div class="content update">
+        <form action="cadastro-prof" method="POST">
+            <label for="nome_completo">Nome Completo</label>
+            <label for="usuario">Usuário</label>
+            <input type="text" name="nome" placeholder="Nome" value="" id="nome">
+            <input type="text" name="usuario" placeholder="Usuario" id="usuario">
+            <label for="nome_completo">CPF</label>
+            <label for="usuario">Senha</label>
+            <input type="text" name="cpf" placeholder="CPF" id="cpf">
+            <input type="password" name="senha" placeholder="Senha" id="senha">
+            <label for="email">Email</label>
+            <input type="text" name="email" placeholder="usuario@colegioatlas.com.br" id="email">
+            <label for="cadastro">Idade</label>
+            <label for="cadastro">Matéria</label>
+            <input type="text" name="idade" id="idade" placeholder="Idade">
+            <input type="text" name="materia" id="materia" placeholder="Matéria 1">
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+</body>
+
+</html>
