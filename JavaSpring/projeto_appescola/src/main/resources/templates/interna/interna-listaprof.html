@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interna - ADM</title>
+    <div th:include="~{fragmentos/head-interna}"></div>
+    <link rel="stylesheet" th:href="@{css/style-aluno.css}">
+</head>
+
+<body>
+    <div th:insert="~{fragmentos/header-interna :: header}"></div>
+    <div class="content read">
+        <table>
+            <thead>
+                <tr>
+                    <td>Usuario</td>
+                    <td>Nome Completo</td>
+                    <td>CPF</td>
+                    <td>Matéria</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="prof : ${profs}">
+                    <td th:text="${prof.usuario}">
+                    </td>
+                    <td th:text="${prof.nome_completo}">
+                    </td>
+                    <td th:text="${prof.cpf}">
+                    </td>
+                    <td th:text="${prof.materia1}">
+                    </td>
+                    <td class="actions">
+                        <a href="updatePedido.php?id_contato=<?= $contact['id_contato'] ?>" class="edit"><i
+                                class="fas fa-pen fa-xs"></i></a>
+                        <a href="deletePedido.php?id_contato=<?= $contact['id_contato'] ?>" class="trash"><i
+                                class="fas fa-trash fa-xs"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+
+</html>

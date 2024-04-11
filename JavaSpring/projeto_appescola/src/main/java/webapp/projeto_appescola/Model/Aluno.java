@@ -7,23 +7,16 @@ import jakarta.persistence.*;
 @Entity
 public class Aluno implements Serializable {
     @Id
-    private String usuario;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Adiciona esta linha para usar a estratégia de identidade no                       // banco de dados
+    private Long id_aluno;
 
     private String nome_completo;
     private String senha;
     private String cpf;
-    private int idade;
+    private String usuario;
     private String email;
-    private String celular;
     private String materia1;
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
+    private String RA;
 
     public String getNome_completo() {
         return nome_completo;
@@ -49,12 +42,12 @@ public class Aluno implements Serializable {
         this.cpf = cpf;
     }
 
-    public int getIdade() {
-        return idade;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getEmail() {
@@ -65,14 +58,6 @@ public class Aluno implements Serializable {
         this.email = email;
     }
 
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
     public String getMateria1() {
         return materia1;
     }
@@ -80,5 +65,21 @@ public class Aluno implements Serializable {
     public void setMateria1(String materia1) {
         this.materia1 = materia1;
     }
-    
+
+    public Long getId_aluno() {
+        return id_aluno;
+    }
+
+    public void setId_aluno(Long id_aluno) {
+        this.id_aluno = id_aluno;
+    }
+
+    public String getRA() {
+        return RA;
+    }
+
+    public void setRA(String rA) {
+        RA = rA;
+    }
+
 }

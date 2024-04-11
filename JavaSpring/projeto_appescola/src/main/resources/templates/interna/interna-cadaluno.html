@@ -12,19 +12,20 @@
 <body>
     <div th:insert="~{fragmentos/header-interna :: header}"></div>
     <div class="content update">
+        <h1>Cadastrar um novo aluno</h1>
         <form action="cadastro-aluno" method="POST">
-            <label for="nome_completo">Nome Completo</label>
+            <label for="cadastro">RA</label>
             <label for="usuario">Usuário</label>
-            <input type="text" name="nome_completo" placeholder="Nome" value="" id="nome_completo">
+            <input type="text" name="RA" id="RA" placeholder="RA">
             <input type="text" name="usuario" placeholder="Usuario" id="usuario">
             <label for="nome_completo">CPF</label>
             <label for="usuario">Senha</label>
             <input type="text" name="cpf" placeholder="CPF" id="cpf">
             <input type="password" name="senha" placeholder="Senha" id="senha">
             <label for="email">Email</label>
-            <label for="cel">Celular</label>
+            <label for="cel">Nome completo</label>
             <input type="text" name="email" placeholder="usuario@colegioatlas.com.br" id="email">
-            <input type="text" name="cel" placeholder="(XX)XXXXX-XXXX" id="cel">
+            <input type="text" name="nome_completo" placeholder="Nome" id="nome_completo">
             <label for="cadastro">Idade</label>
             <label for="cadastro">Matéria</label>
             <input type="text" name="idade" id="idade" placeholder="Idade">

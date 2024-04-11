@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import webapp.projeto_appescola.Model.Aluno;
 
-public interface AlunoRepository extends CrudRepository<Aluno, String>{
+public interface AlunoRepository extends CrudRepository<Aluno, Long>{
     
 }
