@@ -26,6 +26,12 @@ public class IndexController {
     public String acessoCadastroAdm() {
         return "cadastro/admcad";
     }
+
+    @GetMapping("/proflog")
+    public String acessoLoginProf() {
+        return "login/proflog";
+    }
+    
     
     
 }

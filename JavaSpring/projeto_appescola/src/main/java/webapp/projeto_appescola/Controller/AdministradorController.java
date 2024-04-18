@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 
 import webapp.projeto_appescola.Model.Administradores;
 import webapp.projeto_appescola.Model.Aluno;
+import webapp.projeto_appescola.Model.NotasFaltas;
 import webapp.projeto_appescola.Model.Professor;
 import webapp.projeto_appescola.Repository.AdministradoresRepository;
 import webapp.projeto_appescola.Repository.AlunoRepository;
+import webapp.projeto_appescola.Repository.NotasFaltasRepository;
 import webapp.projeto_appescola.Repository.ProfessoresRepository;
 import webapp.projeto_appescola.Repository.VerificaCadastroAdmRepository;
 
@@ -38,6 +40,9 @@ public class AdministradorController {
 
     @Autowired
     private AlunoRepository alR;
+
+    @Autowired
+    private NotasFaltasRepository nfR;
 
     boolean acessoAdm = false;
 
@@ -100,6 +105,20 @@ public class AdministradorController {
     public String cadastroAluno(Aluno aluno) {
         try {
             alR.save(aluno);
+            NotasFaltas nf = new NotasFaltas(0,0,aluno.getId_aluno());
+            nfR.save(nf);
+            System.out.println("Cadastrado com sucesso!");
+        } catch (Exception e) {
+            System.out.println("Falha ao cadastrar!" + e);
+        }
+
+        return "redirect:/cadastrar-aluno";
+    }
+
+    @PostMapping("cadastro-prof")
+    public String cadastroProf(Professor prof) {
+        try {
+            pfR.save(prof);
             System.out.println("Cadastrado com sucesso!");
         } catch (Exception e) {
             System.out.println("Falha ao cadastrar!" + e);

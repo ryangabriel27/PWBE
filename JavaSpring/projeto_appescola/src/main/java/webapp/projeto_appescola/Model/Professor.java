@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Professor implements Serializable {
 
     @Id
-    private String usuario;
+    private String cpf;
 
     private String senha;
     private String nome;
@@ -17,6 +17,7 @@ public class Professor implements Serializable {
     private String materia;
     private String email;
     private String celular;
+    private String usuario;
 
     public String getUsuario() {
         return usuario;
@@ -74,6 +75,12 @@ public class Professor implements Serializable {
         this.celular = celular;
     }
 
-    
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
 }

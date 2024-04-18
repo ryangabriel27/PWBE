@@ -26,16 +26,16 @@
                 <tr th:each="prof : ${profs}">
                     <td th:text="${prof.usuario}">
                     </td>
-                    <td th:text="${prof.nome_completo}">
+                    <td th:text="${prof.nome}">
                     </td>
                     <td th:text="${prof.cpf}">
                     </td>
-                    <td th:text="${prof.materia1}">
+                    <td th:text="${prof.materia}">
                     </td>
                     <td class="actions">
-                        <a href="updatePedido.php?id_contato=<?= $contact['id_contato'] ?>" class="edit"><i
+                        <a href="" class="edit"><i
                                 class="fas fa-pen fa-xs"></i></a>
-                        <a href="deletePedido.php?id_contato=<?= $contact['id_contato'] ?>" class="trash"><i
+                        <a href="" class="trash"><i
                                 class="fas fa-trash fa-xs"></i></a>
                     </td>
                 </tr>

@@ -9,4 +9,5 @@ import webapp.projeto_appescola.Model.Aluno;
 
 public interface AlunoRepository extends CrudRepository<Aluno, Long>{
     
+    List<Aluno> findByMateria1(String materia1);
 }
