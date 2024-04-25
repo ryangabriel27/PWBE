@@ -13,12 +13,36 @@
 <body>
     <div th:insert="~{fragmentos/header :: header}"><!-- barra de menu --></div>
     <div class="container">
-        <!-- ---inserir um carroussel-- -->
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner rounded-5 shadow-4-strong">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="https://www.tce.pi.gov.br/wp-content/uploads/2019/04/PAG-6-plano-nacional-educacao-1.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="https://herospark.com/blog/wp-content/uploads/sites/6/2023/07/d_3tge7hd4s.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://institutoreacao.org.br/wp-content/uploads/2021/01/Cultura-digital-entenda-a-importancia-para-a-educacao.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
         <!-- inserir um footer -->
     </div>
 
 
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 
 </html>

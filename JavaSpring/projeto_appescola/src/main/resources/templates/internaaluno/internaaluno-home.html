@@ -4,24 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interna - ADM</title>
+    <title>Interna - Professores</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{css/style-interna.css}">
+    <link rel="stylesheet" th:href="@{/css/style-interna.css}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/style-aluno-interna.css}">
 </head>
 
 <body>
     <div th:insert="~{fragmentos/header-simples :: header}"></div>
-    <div class="content" style="margin-top: 4em;">
+    <div class="content">
+        <h2><span th:text="${msg}"></span>!</h2>
         <nav>
             <div class="acesso">
-                <a href="/cadastrar-aluno"><i class="fas fa-user-graduate"></i> Cadastrar alunos</a>
-                <a href="/cadastrar-prof"><i class="fas fa-chalkboard-teacher"></i> Cadastrar professores</a>
-                <a href="/listar-aluno"><i class="fas fa-list"></i> Listar alunos</a>
-                <a href="/listar-prof"><i class="fas fa-list"></i> Listar professores</a>
-                <a href="/logout-adm"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                <a th:href="@{/ver-professor/{usuario}(usuario=${usuario})}"><i class="fas fa-user-graduate"></i> Ver meu professor</a>
+                <a th:href="@{/perfil-aluno/{usuario}(usuario=${usuario})}"><i class="fas fa-list"></i> Meu perfil</a>
+                <a href="/logout-aluno"><i class="fas fa-sign-out-alt"></i> Sair</a>
             </div>
         </nav>
     </div>

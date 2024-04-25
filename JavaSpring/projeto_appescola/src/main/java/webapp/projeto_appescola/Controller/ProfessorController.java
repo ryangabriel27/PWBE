@@ -39,11 +39,10 @@ public class ProfessorController {
         boolean verificaCpf = pfR.existsById(cpf);
         if (verificaCpf) {
             boolean verificaSenha = pfR.findByCpf(cpf).getSenha().equals(senha);
-            String encontraMateria = pfR.findByCpf(cpf).getMateria();
             String encontraUsuario = pfR.findByCpf(cpf).getUsuario();
             if (verificaSenha) {
                 acessoProfessor = true;
-                url = "redirect:/internaprof/" + encontraUsuario + "/" + encontraMateria;
+                url = "redirect:/internaprof/" + encontraUsuario;
             } else {
                 url = "redirect:/admlog";
             }
@@ -54,9 +53,8 @@ public class ProfessorController {
         return url;
     }
 
-    @GetMapping("/internaprof/{usuario}/{materia}") // Corrigido para usar "/"
-    public ModelAndView acessoInternaProf(@PathVariable("usuario") String usuario,
-            @PathVariable("materia") String materia) {
+    @GetMapping("/internaprof/{usuario}") // Corrigido para usar "/"
+    public ModelAndView acessoInternaProf(@PathVariable("usuario") String usuario) {
         ModelAndView mv = new ModelAndView();
         if (acessoProfessor) {
             String msg = "Bem vindo, " + usuario;
@@ -68,11 +66,12 @@ public class ProfessorController {
         return mv;
     }
 
-    @GetMapping("/listar-alunoprof/{materia}")
-    public ModelAndView listarAlunos(@PathVariable("materia") String materia) {
+    @GetMapping("/listar-alunoprof/{usuario}")
+    public ModelAndView listarAlunos(@PathVariable("usuario") String usuario) {
         ModelAndView modelAndView = new ModelAndView();
         if (acessoProfessor) {
-            List<Aluno> alunos = (List<Aluno>) alR.findByMateria1(materia);
+            Professor prof = pfR.findByUsuario(usuario);
+            List<Aluno> alunos = alR.findByMateria1(prof.getMateria());
             modelAndView.addObject("alunos", alunos);
             modelAndView.setViewName("internaprof/internaprof-listaluno");
         } else {
@@ -96,5 +95,26 @@ public class ProfessorController {
         return modelAndView;
     }
 
+    @GetMapping("/perfil-prof/{usuario}")
+    public ModelAndView verPerfilProf(@PathVariable("usuario") String usuario) {
+        ModelAndView modelAndView = new ModelAndView();
+        Professor prof = pfR.findByUsuario(usuario);
+        if (prof != null) {
+            modelAndView.addObject("prof", prof);
+            modelAndView.setViewName("internaprof/internaprof-perfil");
+        } else {
+            // Tratar o caso em que o aluno não é encontrado
+            modelAndView.setViewName("redirect:/proflog");
+        }
+        return modelAndView;
+    }
+
+    @GetMapping("/logout-prof")
+    public String logoutAdm() {
+        acessoProfessor = false;
+
+        return "redirect:/home";
+    }
+    
 
 }

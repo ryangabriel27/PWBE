@@ -9,11 +9,24 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/style-interna.css}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style-aluno-interna.css}">
 </head>
 
 <body>
-    <div th:insert="~{fragmentos/header-internaprof :: header}"></div>
-    <h1><span th:text="${msg}"></span> !</h1>
+    <div th:insert="~{fragmentos/header-simples :: header}"></div>
+    <div class="content">
+        <h2><span th:text="${msg}"></span>!</h2>
+        <nav>
+            <div class="acesso">
+                <a th:href="@{/listar-alunoprof/{usuario}(usuario=${usuario})}"><i
+                        class="fas fa-user-graduate"></i> Ver
+                    seus alunos</a>
+                <a th:href="@{/perfil-prof/{usuario}(usuario=${usuario})}"><i class="fas fa-list"></i> Meu perfil</a>
+                <a href="/logout-prof"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            </div>
+        </nav>
+    </div>
+
 </body>
 
 </html>

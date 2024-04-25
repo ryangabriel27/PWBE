@@ -10,4 +10,10 @@ import webapp.projeto_appescola.Model.Aluno;
 public interface AlunoRepository extends CrudRepository<Aluno, Long>{
     
     List<Aluno> findByMateria1(String materia1);
+
+    boolean existsByEmail(String email);
+
+    Aluno findByEmail(String email);
+
+    Aluno findByUsuario(String usuario);
 }
