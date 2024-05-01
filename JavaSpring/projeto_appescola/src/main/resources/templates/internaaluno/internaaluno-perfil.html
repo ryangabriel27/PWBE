@@ -10,29 +10,50 @@
     <link rel="stylesheet" th:href="@{/css/style-interna.css}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/style-aluno.css}">
+    <link rel="stylesheet" th:href="@{/css/style-perfil.css}">
 </head>
 
 <body>
     <div th:insert="~{fragmentos/header-internaaluno :: header}"></div>
-    <div class="content update">
+    <div class="content">
         <h2>Minhas informações - <span th:text="${aluno.usuario}"></span></h2>
-        <form>
-            <div th:each="aluno : ${aluno}"></div>
-            <label for="id_aluno">Id escolar</label>
-            <label for="nome">Usuario</label>
-            <input type="text" name="id_contato" placeholder="" th:value="${aluno.id_aluno}" id="id_aluno" readonly>
-            <input type="text" name="usuario" placeholder="Usuario" th:value="${aluno.usuario}" id="usuario" readonly>
-            <label for="nome_completo">Nome</label>
-            <label for="cel">RA</label>
-            <input type="text" name="nome_completo" placeholder="Nome" th:value="${aluno.nome_completo}"
-                id="nome_completo" readonly>
-            <input type="text" name="RA" placeholder="RA" th:value="${aluno.RA}" id="RA" readonly>
-            <label for="materia">Materia</label>
-            <label for="cpf">E-mail</label>
-            <input type="text" name="materia1" placeholder="Materia" th:value="${aluno.materia1}" id="materia1"
-                readonly>
-            <input type="text" name="email" th:value="${aluno.email}" id="email" placeholder="E-mail" readonly>
-        </form>
+        <div class="card">
+            <form>
+                <div th:each="aluno : ${aluno}"></div>
+                <div class="form-group">
+                    <label for="id_aluno">Id aluno:</label>
+                    <input type="text" name="id_contato" placeholder="" th:value="${aluno.id_aluno}" id="id_aluno"
+                        readonly>
+                </div>
+                <div class="form-group">
+                    <label for="nome">Usuario:</label>
+                    <input type="text" name="usuario" placeholder="Usuario" th:value="${aluno.usuario}" id="usuario"
+                        readonly>
+                </div>
+                <div class="form-group">
+                    <label for="nome_completo">Nome:</label>
+                    <input type="text" name="nome_completo" placeholder="Nome" th:value="${aluno.nome_completo}"
+                        id="nome_completo" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="cel">RA:</label>
+                    <input type="text" name="RA" placeholder="RA" th:value="${aluno.RA}" id="RA" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="materia">Materia:</label>                    
+                    <input type="text" name="materia1" placeholder="Materia" th:value="${aluno.materia1}" id="materia1"
+                        readonly>
+                </div>
+                <div class="form-group">
+                    <label for="cpf">E-mail:</label>
+                    <input type="text" name="email" th:value="${aluno.email}" id="email" placeholder="E-mail" readonly>
+                </div>
+            </form>
+            <div class="img-right">
+                <img th:src="@{/img/img-aluno.png}" alt="img-prof">
+            </div>
+        </div>
     </div>
 </body>
+
 </html>

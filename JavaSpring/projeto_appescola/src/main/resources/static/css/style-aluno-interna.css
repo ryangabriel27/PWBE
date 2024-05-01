@@ -1,6 +1,7 @@
-nav{
+nav {
     width: 80%;
     margin: 0 auto;
+    border: 0;
 }
 
 nav .acesso {
@@ -18,8 +19,8 @@ nav a {
 }
 
 nav .acesso a {
-    background-color: rgb(24, 78, 24);
-    color: #E6FAFC;
+    background-color: #324877;
+    color: #ffffff;
 }
 
 .content {
@@ -29,7 +30,7 @@ nav .acesso a {
     flex-direction: column;
 }
 
-.content h2{
+.content h2 {
     margin-top: 1.5em;
     margin-bottom: 3em;
 }

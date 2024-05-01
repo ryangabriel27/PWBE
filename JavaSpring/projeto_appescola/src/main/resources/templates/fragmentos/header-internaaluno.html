@@ -1,8 +1,10 @@
 <header>
-    <h1>Cólegio Atlas</h1>
+    <div class="title">
+        <h1><img th:src="@{/img/logo.png}" alt="">ATLAS</h1>
+    </div>
     <nav>
         <div class="acesso">
-            <a href="@{/ver-professor/{usuario}(usuario=${usuario})}"><i class="fas fa-user-graduate"></i> Ver meu professor</a>
+            <a th:href="@{/ver-professor/{usuario}(usuario=${usuario})}"><i class="fas fa-user-graduate"></i> Ver meu professor</a>
             <a th:href="@{/perfil-aluno/{usuario}(usuario=${usuario})}"><i class="fas fa-list"></i> Meu perfil</a>
             <a href="/logout-aluno"><i class="fas fa-sign-out-alt"></i> Sair</a>
         </div>

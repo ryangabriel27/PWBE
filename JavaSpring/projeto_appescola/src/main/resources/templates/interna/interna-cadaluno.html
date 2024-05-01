@@ -14,29 +14,45 @@
     <div class="content update">
         <h1>Cadastrar um novo aluno</h1>
         <form action="cadastro-aluno" method="POST">
-            <label for="cadastro">RA</label>
-            <label for="usuario">Usuário</label>
-            <input type="text" name="RA" id="RA" placeholder="RA">
-            <input type="text" name="usuario" placeholder="Usuario" id="usuario">
-            <label for="nome_completo">CPF</label>
-            <label for="usuario">Senha</label>
-            <input type="text" name="cpf" placeholder="CPF" id="cpf" OnKeyPress="formatar('###.###.###-##',this)">
-            <input type="password" name="senha" placeholder="Senha" id="senha">
-            <label for="email">Email</label>
-            <label for="cel">Nome completo</label>
-            <input type="text" name="email" placeholder="usuario@colegioatlas.com.br" id="email">
-            <input type="text" name="nome_completo" placeholder="Nome" id="nome_completo">
-            <label for="cadastro">Idade</label>
-            <label for="cadastro">Matéria</label>
-            <input type="text" name="idade" id="idade" placeholder="Idade">
-            <select name="materia" id="materia">
-                <option value="QUIMICA">QUÍMICA</option>
-                <option value="MATEMATICA">MATEMÁTICA</option>
-                <option value="FISICA">FÍSICA</option>
-                <option value="HISTORIA">HISTÓRIA</option>
-                <option value="GEOGRAFIA">GEOGRAFIA</option>
-                <option value="PORTUGUES">PORTUGUÊS</option>
-            </select>
+            <div class="form-group">
+                <label for="cadastro">RA</label>
+                <label for="usuario">Usuário</label>
+            </div>
+            <div class="form-group">
+                <input type="text" name="RA" id="RA" placeholder="RA">
+                <input type="text" name="usuario" placeholder="Usuario" id="usuario">
+            </div>
+            <div class="form-group">
+                <label for="nome_completo">CPF</label>
+                <label for="usuario">Senha</label>
+            </div>
+            <div class="form-group">
+                <input type="text" name="cpf" placeholder="CPF" id="cpf" OnKeyPress="formatar('###.###.###-##',this)">
+                <input type="password" name="senha" placeholder="Senha" id="senha">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <label for="cel">Nome completo</label>
+            </div>
+            <div class="form-group">
+                <input type="text" name="email" placeholder="usuario@colegioatlas.com.br" id="email">
+                <input type="text" name="nome_completo" placeholder="Nome" id="nome_completo">
+            </div>
+            <div class="form-group">
+                <label for="cadastro">Idade</label>
+                <label for="cadastro">Matéria</label>
+            </div>
+            <div class="form-group">
+                <input type="text" name="idade" id="idade" placeholder="Idade">
+                <select name="materia1" id="materia1">
+                    <option value="QUIMICA">QUÍMICA</option>
+                    <option value="MATEMATICA">MATEMÁTICA</option>
+                    <option value="FISICA">FÍSICA</option>
+                    <option value="HISTORIA">HISTÓRIA</option>
+                    <option value="GEOGRAFIA">GEOGRAFIA</option>
+                    <option value="PORTUGUES">PORTUGUÊS</option>
+                </select>
+            </div>
             <input type="submit" value="Cadastrar">
         </form>
     </div>

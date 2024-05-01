@@ -1,7 +1,7 @@
 .content {
     width: 50%;
-    margin-left: 550px;
-    margin-top: 30px;
+    margin: 0 auto;
+    margin-top: 2em;
 }
 
 .content h2 {
@@ -15,35 +15,38 @@
 .update form {
     padding: 15px 0;
     display: flex;
-    flex-flow: wrap;
+    flex-direction: column;
+}
+
+.update form .form-group{
+    display: flex;
+    flex-direction: row;
 }
 
 .update form label {
     display: inline-flex;
     width: 400px;
     padding: 10px 0;
-    margin-right: 25px;
+    margin: 5px;
 }
 
 .update form input {
     padding: 10px;
     width: 400px;
-    margin-right: 25px;
-    margin-bottom: 15px;
     border: 1px solid #cccccc;
+    margin: 5px;
 }
 
 .update form select {
     padding: 10px;
     width: 400px;
-    margin-right: 25px;
-    margin-bottom: 15px;
     border: 1px solid #cccccc;
+    margin: 5px;
 }
 
 .update form input[type="submit"] {
     display: block;
-    background-color: #38b673;
+    background-color: #324877;
     border: 0;
     font-weight: bold;
     font-size: 14px;
@@ -54,7 +57,7 @@
 }
 
 .update form input[type="submit"]:hover {
-    background-color: #32a367;
+    background-color: #243455;
 }
 
 .read table {
@@ -63,13 +66,13 @@
     border-collapse: collapse;
 }
 .read table thead {
-    background-color: #ebeef1;
-    border-bottom: 1px solid #d3dae0;
+    background-color: #324877;
+    border-bottom: 1px solid #233150;
 }
 .read table thead td {
     padding: 10px;
     font-weight: bold;
-    color: #767779;
+    color: #ffffff;
     font-size: 14px;
 }
 .read table tbody tr {
@@ -79,7 +82,7 @@
     background-color: #fbfcfc;
 }
 .read table tbody tr:hover {
-    background-color: #376ab7;
+    background-color: #6b96d8;
 }
 .read table tbody tr:hover td {
     color: #FFFFFF;
@@ -91,7 +94,7 @@
     padding: 10px;
 }
 .read table tbody tr td:nth-child(1) {
-    color: #a5a7a9;
+    color: #324877;
 }
 .read table tbody tr td.actions {
     padding: 8px;
