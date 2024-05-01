@@ -16,13 +16,16 @@
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner rounded-5 shadow-4-strong">
                 <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="https://www.tce.pi.gov.br/wp-content/uploads/2019/04/PAG-6-plano-nacional-educacao-1.jpg" class="d-block w-100" alt="...">
+                    <img th:src="@{/img/carousel-1.jpg}"
+                        class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
-                    <img src="https://herospark.com/blog/wp-content/uploads/sites/6/2023/07/d_3tge7hd4s.jpg" class="d-block w-100" alt="...">
+                    <img th:src="@{/img/carousel-2.jpg}"
+                        class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://institutoreacao.org.br/wp-content/uploads/2021/01/Cultura-digital-entenda-a-importancia-para-a-educacao.jpg" class="d-block w-100" alt="...">
+                    <img th:src="@{/img/carousel-3.jpg}"
+                        class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
@@ -36,10 +39,41 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <!-- inserir um footer -->
+
     </div>
-
-
+    <div class="index-container" style="margin-top: -2em;">
+        <div class="index-content">
+            <div class="imgContent">
+                <img th:src="@{/img/home.png}">
+            </div>
+            <div class="textContent">
+                <h1>COMPROMETIMENTO COM O CONHECIMENTO</h1>
+                <h3>"Seja o protagonista da sua própria história de sucesso - aqui na nossa escola, seu potencial é
+                    ilimitado!"</h3>
+                <p>Nosso comprometimento com o conhecimento é mais do que uma promessa; é o alicerce sobre o qual
+                    construímos cada jornada educacional. Na nossa escola, você é incentivado a ser o protagonista da
+                    sua própria história de sucesso. Nossos educadores estão dedicados a desbloquear seu potencial
+                    ilimitado, fornecendo o suporte necessário para que você alcance grandes conquistas. Junte-se a nós
+                    e embarque nesta emocionante jornada de descoberta e crescimento.</p>
+            </div>
+        </div>
+    </div>
+    <div class="index-container" style="margin-top: -6em;">
+        <div class="index-content">
+            <div class="textContent">
+                <h1>TRILHANDO O CAMINHO DO SABER</h1>
+                <h3>Trazendo o Melhor de Você para o Mundo</h3>
+                <p>Na nossa escola, a jornada do conhecimento é uma aventura emocionante. Com uma equipe comprometida e
+                    um ambiente acolhedor, estamos aqui para guiá-lo em cada passo do caminho, enquanto você descobre
+                    novos horizontes e alcança seu potencial máximo.
+                </p>
+            </div>
+            <div class="imgContent">
+                <img th:src="@{/img/home-2.png}">
+            </div>
+        </div>
+    </div>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

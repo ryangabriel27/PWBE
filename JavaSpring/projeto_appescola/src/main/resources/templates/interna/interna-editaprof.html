@@ -15,40 +15,40 @@
 <body>
     <div th:insert="~{fragmentos/header-interna :: header}"></div>
     <div class="content update">
-        <h2>Atualizar aluno - <span th:text="${aluno.usuario}"></span></h2>
+        <h2>Atualizar professor - <span th:text="${prof.usuario}"></span></h2>
         <form method="post">
-            <div th:each="aluno : ${aluno}"></div>
+            <div th:each="prof : ${prof}"></div>
             <div class="form-group">
-                <label for="id_aluno">id_aluno</label>
+                <label for="id_aluno">Id escolar</label>
                 <label for="nome">Usuario</label>
             </div>
             <div class="form-group">
-                <input type="text" name="id_contato" placeholder="" th:value="${aluno.id_aluno}" id="id_aluno" readonly>
-                <input type="text" name="usuario" placeholder="Usuario" th:value="${aluno.usuario}" id="usuario">
+                <input type="text" name="id_contato" placeholder="" th:value="${prof.cpf}" id="cpf" readonly>
+                <input type="text" name="usuario" placeholder="Usuario" th:value="${prof.usuario}" id="usuario">
             </div>
             <div class="form-group">
                 <label for="nome_completo">Nome</label>
-                <label for="cel">RA</label>
+                <label for="cel">Materia</label>
             </div>
             <div class="form-group">
-                <input type="text" name="nome_completo" placeholder="Nome" th:value="${aluno.nome_completo}"
-                    id="nome_completo">
-                <input type="text" name="RA" placeholder="RA" th:value="${aluno.RA}" id="RA">
+                <input type="text" name="nome" placeholder="Nome" th:value="${prof.nome}"
+                    id="nome">
+                    <select name="materia" id="materia" th:value="${prof.materia}">
+                        <option value="QUIMICA">QUÍMICA</option>
+                        <option value="MATEMATICA">MATEMÁTICA</option>
+                        <option value="FISICA">FÍSICA</option>
+                        <option value="HISTORIA">HISTÓRIA</option>
+                        <option value="GEOGRAFIA">GEOGRAFIA</option>
+                        <option value="PORTUGUES">PORTUGUÊS</option>
+                    </select>
             </div>
             <div class="form-group">
-                <label for="materia">Materia</label>
+                <label for="materia">Celular</label>
                 <label for="cpf">E-mail</label>
             </div>
             <div class="form-group">
-                <select name="materia1" id="materia1">
-                    <option value="QUIMICA">QUÍMICA</option>
-                    <option value="MATEMATICA">MATEMÁTICA</option>
-                    <option value="FISICA">FÍSICA</option>
-                    <option value="HISTORIA">HISTÓRIA</option>
-                    <option value="GEOGRAFIA">GEOGRAFIA</option>
-                    <option value="PORTUGUES">PORTUGUÊS</option>
-                </select>
-                <input type="text" name="email" th:value="${aluno.email}" id="email" placeholder="E-mail">
+                <input type="text" name="celular" placeholder="Celular" th:value="${prof.celular}" id="celular">
+                <input type="text" name="email" th:value="${prof.email}" id="email" placeholder="E-mail">
             </div>
             <input type="submit" value="Atualizar">
         </form>

@@ -27,7 +27,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class AdministradorController {
-    
 
     @Autowired
     private AdministradoresRepository admR;
@@ -105,7 +104,7 @@ public class AdministradorController {
     public String cadastroAluno(Aluno aluno) {
         try {
             alR.save(aluno);
-            NotasFaltas nf = new NotasFaltas(0,0,aluno.getId_aluno());
+            NotasFaltas nf = new NotasFaltas(0, 0, aluno.getId_aluno());
             nfR.save(nf);
             System.out.println("Cadastrado com sucesso!");
         } catch (Exception e) {
@@ -195,11 +194,48 @@ public class AdministradorController {
         return modelAndView;
     }
 
-    @PostMapping("/editaraluno/{usuario}")
+    @PostMapping("/editaraluno/{id_aluno}")
     public String editarAluno(Aluno aluno) {
-        System.err.println(aluno.getNome_completo());
-        //alR.save(aluno);
-        return "redirect:/listar-aluno";
+        String url = "";
+        if (acessoAdm) {
+            alR.save(aluno);
+            url = "redirect:/listar-aluno";
+        } else {
+            url = "redirect:/admlog";
+        }
+        return url;
+    }
+
+    @GetMapping("/deletarprof/{cpf}")
+    public String deletarProfessor(@PathVariable("cpf") String cpf) {
+        pfR.deleteById(cpf);
+        return "redirect:/listar-prof";
+    }
+
+    @GetMapping("/editarprof/{cpf}")
+    public ModelAndView abrireditarProfessor(@PathVariable("cpf") String cpf) {
+        ModelAndView modelAndView = new ModelAndView();
+        Professor prof = pfR.findById(cpf).orElse(null);
+        if (prof != null) {
+            modelAndView.addObject("prof", prof);
+            modelAndView.setViewName("interna/interna-editaprof");
+        } else {
+            // Tratar o caso em que o aluno não é encontrado
+            modelAndView.setViewName("redirect:/interna-listaprof");
+        }
+        return modelAndView;
+    }
+
+    @PostMapping("/editarprof/{cpf}")
+    public String editarProfessor(Professor prof) {
+        String url = "";
+        if (acessoAdm) {
+            pfR.save(prof);
+            url = "redirect:/listar-prof";
+        } else {
+            url = "redirect:/admlog";
+        }
+        return url;
     }
 
 }
