@@ -13,6 +13,8 @@ public interface AlunoRepository extends CrudRepository<Aluno, Long>{
 
     boolean existsByEmail(String email);
 
+    boolean existsByUsuario(String usuario);
+
     Aluno findByEmail(String email);
 
     Aluno findByUsuario(String usuario);

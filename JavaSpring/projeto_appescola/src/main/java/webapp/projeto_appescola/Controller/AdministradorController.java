@@ -103,11 +103,10 @@ public class AdministradorController {
     @PostMapping("cadastro-aluno")
     public String cadastroAluno(Aluno aluno) {
         boolean emailExiste = alR.existsByEmail(aluno.getEmail());
-        if(!emailExiste){
+        boolean usuarioExiste = alR.existsByUsuario(aluno.getUsuario());
+        if (!emailExiste && !usuarioExiste) {
             try {
                 alR.save(aluno);
-                NotasFaltas nf = new NotasFaltas(0, 0, aluno.getId_aluno());
-                nfR.save(nf);
                 System.out.println("Cadastrado com sucesso!");
             } catch (Exception e) {
                 System.out.println("Falha ao cadastrar!" + e);
@@ -118,14 +117,17 @@ public class AdministradorController {
 
     @PostMapping("cadastro-prof")
     public String cadastroProf(Professor prof) {
-        try {
-            pfR.save(prof);
-            System.out.println("Cadastrado com sucesso!");
-        } catch (Exception e) {
-            System.out.println("Falha ao cadastrar!" + e);
+        boolean emailExiste = pfR.existsByEmail(prof.getEmail());
+        boolean usuarioExiste = pfR.existsByUsuario(prof.getUsuario());
+        if (!emailExiste && !usuarioExiste) {
+            try {
+                pfR.save(prof);
+                System.out.println("Cadastrado com sucesso!");
+            } catch (Exception e) {
+                System.out.println("Falha ao cadastrar!" + e);
+            }
         }
-
-        return "redirect:/cadastrar-aluno";
+        return "redirect:/cadastrar-prof";
     }
 
     @GetMapping("/cadastrar-prof")

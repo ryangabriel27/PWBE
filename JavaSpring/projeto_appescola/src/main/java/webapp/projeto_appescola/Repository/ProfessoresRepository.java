@@ -12,6 +12,10 @@ public interface ProfessoresRepository extends CrudRepository<Professor, String>
 
     Professor findByUsuario(String usuario);
 
+    boolean existsByEmail(String email);
+
+    boolean existsByUsuario(String usuario);
+
     List<Professor> findAllByMateria(
             String materia);
 }
