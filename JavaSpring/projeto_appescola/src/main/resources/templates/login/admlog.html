@@ -22,10 +22,10 @@
                         <div class="card-body">
                             <form action="acesso-adm" method="post">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="CPF" id="cpf" name="cpf">
+                                    <input type="text" class="form-control" placeholder="CPF" id="cpf" name="cpf" OnKeyPress="formatar('###.###.###-##',this)" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Senha" id="senha" name="senha">
+                                    <input type="password" class="form-control" placeholder="Senha" id="senha" name="senha" required>
                                 </div>
                                 <button type="submit" class="btn btn-block btn-login"><i class="fas fa-sign-in-alt"></i>
                                     Entrar</button>
@@ -39,5 +39,16 @@
         </div>
     </div>
 </body>
-
+<script>
+    function formatar(mascara, documento) {
+        let i = documento.value.length;
+        let saida = '#';
+        let texto = mascara.substring(i);
+        while (texto.substring(0, 1) != saida && texto.length) {
+            documento.value += texto.substring(0, 1);
+            i++;
+            texto = mascara.substring(i);
+        }
+    }
+</script>
 </html>
