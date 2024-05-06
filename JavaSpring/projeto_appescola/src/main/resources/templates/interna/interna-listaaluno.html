@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interna - ADM</title>
+    <div th:include="~{fragmentos/head-interna}"></div>
+    <link rel="stylesheet" th:href="@{css/style-aluno.css}">
+</head>
+
+<body>
+    <div th:insert="~{fragmentos/header-interna :: header}"></div>
+    <div class="content read">
+        <table>
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Usuario</td>
+                    <td>Nome Completo</td>
+                    <td>RA</td>
+                    <td>E-mail</td>
+                    <td>Matéria</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aluno : ${alunos}">
+                    <td th:text="${aluno.id_aluno}">
+                    </td>
+                    <td th:text="${aluno.usuario}">
+                    </td>
+                    <td th:text="${aluno.nome_completo}">
+                    </td>
+                    <td th:text="${aluno.RA}">
+                    </td>
+                    <td th:text="${aluno.email}">
+                    </td>
+                    <td th:text="${aluno.materia1}">
+                    </td>
+                    <td class="actions">
+                        <a th:href="@{'/editaraluno/' + ${aluno.id_aluno}}" class="edit"><i
+                                class="fas fa-pen fa-xs"></i></a>
+                        <a th:href="@{'/deletaraluno/'+ ${aluno.id_aluno}}" class="trash"><i
+                                class="fas fa-trash fa-xs"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+
+</html>

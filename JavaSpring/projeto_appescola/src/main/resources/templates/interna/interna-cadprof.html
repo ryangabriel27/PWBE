@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Interna</title>
+    <div th:include="~{fragmentos/head-interna}"></div>
+    <link rel="stylesheet" th:href="@{css/style-aluno.css}">
+</head>
+
+<body>
+    <div th:insert="~{fragmentos/header-interna :: header}"></div>
+    <div class="content update">
+        <h1>Cadastrar um novo Professor</h1>
+        <form action="cadastro-prof" method="POST">
+            <div class="form-group">
+                <label for="nome_completo">Nome Completo</label>
+                <label for="usuario">Usuário</label>
+            </div>
+            <div class="form-group">
+                <input type="text" name="nome" placeholder="Nome" value="" id="nome" required>
+                <input type="text" name="usuario" placeholder="Usuario" id="usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="nome_completo">CPF</label>
+                <label for="usuario">Senha</label>
+            </div>
+            <div class="form-group">
+                <input type="text" name="cpf" placeholder="CPF" id="cpf" OnKeyPress="formatar('###.###.###-##',this)" required>
+                <input type="password" name="senha" placeholder="Senha" id="senha" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <label for="cadastro">Celular</label>
+            </div>
+            <div class="form-group">
+                <input type="text" name="email" placeholder="usuario@colegioatlas.com.br" id="email" required>
+                <input type="text" name="celular" id="celular" placeholder="celular" required>
+            </div>
+            <div class="form-group">
+                <label for="cadastro">Matéria:</label>
+                <label for="cadastro">Idade</label>
+            </div>
+            <div class="form-group">
+                <select name="materia" id="materia">
+                    <option value="QUIMICA">QUÍMICA</option>
+                    <option value="MATEMATICA">MATEMÁTICA</option>
+                    <option value="FISICA">FÍSICA</option>
+                    <option value="HISTORIA">HISTÓRIA</option>
+                    <option value="GEOGRAFIA">GEOGRAFIA</option>
+                    <option value="PORTUGUES">PORTUGUÊS</option>
+                    <option value="BIOLOGIA">BIOLOGIA</option>
+                    <option value="ED.FISICA">ED.FÍSICA</option>
+                </select>
+                <input type="text" name="idade" id="idade" placeholder="Idade" required>
+            </div>
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+</body>
+<script>
+    function formatar(mascara, documento) {
+        let i = documento.value.length;
+        let saida = '#';
+        let texto = mascara.substring(i);
+        while (texto.substring(0, 1) != saida && texto.length) {
+            documento.value += texto.substring(0, 1);
+            i++;
+            texto = mascara.substring(i);
+        }
+    }
+</script>
+
+</html>
