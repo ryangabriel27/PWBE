@@ -13,7 +13,7 @@ body {
 }
 
 .card-header {
-    background-color: #324877;
+    background-color: orangered;
     color: #ffffff;
     text-align: center;
     font-weight: bold;
@@ -36,7 +36,7 @@ body {
 }
 
 .btn-register {
-    background-color: #333;
+    background-color: orangered;
     border: none;
     border-radius: 25px;
     padding: 10px 20px;
@@ -48,5 +48,5 @@ body {
 }
 
 .btn-register:hover {
-    background-color: #555;
+    background-color: rgb(209, 60, 6);
 }

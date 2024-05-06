@@ -8,19 +8,12 @@ import jakarta.persistence.*;
 public class Usuario implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_usuario;
+    private Integer id_usuario;
+
     private String nome;
     private String cpf;
     private String senha;
     private String email;
-
-    public int getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
-    }
 
     public String getNome() {
         return nome;
@@ -52,6 +45,15 @@ public class Usuario implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+
+    public Integer getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(Integer id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
 }

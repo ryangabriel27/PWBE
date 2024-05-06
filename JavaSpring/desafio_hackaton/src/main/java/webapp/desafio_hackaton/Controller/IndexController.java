@@ -28,6 +28,18 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/home")
+    public String abrirHome() {
+        return "index";
+    }
+
+    @GetMapping("/receitas")
+    public String abrirReceitas() {
+        return "receitas";
+    }
+    
+    
+
     @GetMapping("/cadastro")
     public String abrirCadastro() {
         return "cadastro/cad-usuario";
@@ -85,7 +97,7 @@ public class IndexController {
     @GetMapping("/logout")
     public String abrirLogout() {
         acesso = false;
-        return "redirect:/";
+        return "redirect:/home";
     }
 
     @GetMapping("/perfil-usuario/{id_usuario}")
@@ -101,9 +113,22 @@ public class IndexController {
         }
         return modelAndView;
     }
-    
-    
 
+    @GetMapping("/cadastrar-receitas/{id_usuario}")
+    public ModelAndView abrirCadastrarReceita(@PathVariable("id_usuario") int id) {
+        ModelAndView modelAndView = new ModelAndView();
+        Usuario user = usR.findById(id);
+        if(user != null){
+            modelAndView.addObject("user", user);
+            modelAndView.setViewName("interna/cadastrar-receita");
+        } else{
+           // Tratar o caso em que o aluno não é encontrado
+           modelAndView.setViewName("redirect:/login"); 
+        }
+        return modelAndView;
+    }
+    
+    
 
 
 }

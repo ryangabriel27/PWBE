@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descrição da Receita</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style-receita.css}">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/home"><img th:src="@{img/logo2.png}" alt="" height="100" width="100%">
+                </a>
+                <ul class="nav me-auto ">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/receitas">Receita</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/cadastro">Cadastre-se
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/login">Login</a>
+                    </li>
+
+                </ul>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1 id="nome-receita">Nome da Receita</h1>
+        <div id="passo-a-passo" class="passo-a-passo">
+            <!-- Passo a Passo da Receita -->
+            <p id="passo1">Passo 1: Descrição do passo 1</p>
+            <p id="passo2">Passo 2: Descrição do passo 2</p>
+            <p id="passo3">Passo 3: Descrição do passo 3</p>
+            <!-- Adicione os outros passos aqui -->
+        </div>
+    </div>
+
+    <script>
+        // Função para obter o nome da receita da URL
+        function getNomeReceita() {
+            // Obter a URL da página atual
+            var url = window.location.href;
+            // Encontrar o caractere "#" na URL
+            var hashIndex = url.lastIndexOf("#");
+            // Extrair o nome da receita da URL
+            var nomeReceita = url.substring(hashIndex + 1);
+            // Substituir underscores por espaços
+            nomeReceita = nomeReceita.replace(/_/g, " ");
+            // Retornar o nome da receita
+            return nomeReceita;
+        }
+
+        // Função para substituir o nome da receita no título
+        function substituirNomeReceita() {
+            var nomeReceita = getNomeReceita();
+            document.getElementById("nome-receita").innerText = nomeReceita;
+        }
+
+        // Função para substituir os passos da receita
+        function substituirPassosReceita() {
+            var passos = {
+                "Strogonoff de Frango": [
+                    "Corte o frango em cubos e tempere com sal e pimenta.",
+                    "Em uma panela, doure o frango.",
+                    "Adicione creme de leite e molho de tomate. Cozinhe até engrossar."
+                ],
+                "Risoto de Cogumelos": [
+                    "Refogue cebola e alho.",
+                    "Adicione arroz e caldo de legumes.",
+                    "Cozinhe até o arroz ficar macio e adicione cogumelos."
+                ],
+                "Penne á Carbonara": [
+                    "Cozinhe o penne.",
+                    "Frite bacon até ficar crocante.",
+                    "Misture o penne com o bacon e um molho feito com gemas, queijo e pimenta."
+                ],
+                "Sopa de Legumes": [
+                    "Refogue cebola e alho.",
+                    "Adicione legumes e caldo de legumes.",
+                    "Cozinhe até os legumes ficarem macios e tempere a gosto."
+                ],
+                "Torta de Frango": [
+                    "Prepare uma massa.",
+                    "Refogue frango desfiado com cebola e temperos.",
+                    "Monte a torta e asse até dourar."
+                ],
+                "Salada Caesar": [
+                    "Misture alface romana, croutons e queijo parmesão.",
+                    "Prepare um molho com maionese, suco de limão e anchovas.",
+                    "Misture a salada com o molho e sirva."
+                ],
+                "Mousse de Chocolate": [
+                    "Derreta chocolate em banho-maria.",
+                    "Bata creme de leite até ficar em ponto de chantilly.",
+                    "Misture o chocolate derretido ao chantilly e leve à geladeira."
+                ],
+                "Salmão ao Molho de Maracujá": [
+                    "Grelhe o salmão.",
+                    "Prepare um molho com polpa de maracujá, açúcar e água.",
+                    "Sirva o salmão com o molho por cima."
+                ],
+                "Feijoada": [
+                    "Cozinhe feijão preto com carne de porco e linguiça.",
+                    "Refogue cebola, alho, e bacon.",
+                    "Junte ao feijão cozido e cozinhe até engrossar."
+                ]
+                // Adicione os outros passos aqui
+            };
+
+            var nomeReceita = getNomeReceita();
+            var passosDaReceita = passos[nomeReceita];
+            if (passosDaReceita) {
+                for (var i = 0; i < passosDaReceita.length; i++) {
+                    document.getElementById("passo" + (i + 1)).innerText = "Passo " + (i + 1) + ": " + passosDaReceita[i];
+                }
+            }
+        }
+
+        // Chamar a função ao carregar a página
+        substituirNomeReceita();
+        substituirPassosReceita();
+    </script>
+</body>
+
+</html>

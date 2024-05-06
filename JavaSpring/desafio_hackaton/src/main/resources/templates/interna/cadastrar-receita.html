@@ -9,8 +9,50 @@
 </head>
 
 <body>
-    <a href="/cadastro"> ir para o cadastro</a>
-    <a href="/login"> ir para o login</a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="register-container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Cadastro</h3>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="cadastrar-receita">
+                                <div th:each="user:${user}"></div>
+                                <div class="form-group">
+                                    <label for="">Título:</label>
+                                    <label for="">Descrição:</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Título.." name="titulo"
+                                        required>
+                                    <input type="text" class="form-control" placeholder="Descrição.." name="descricao"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Categoria:</label>
+                                    <label for="">Proprietario:</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Categoria.." name="categoria"
+                                        required>
+                                    <input type="text" class="form-control" placeholder="Proprietário" id="proprietario" th:text="{user.usuario}"
+                                        required readonly>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Confirmar Senha"
+                                        name="senha" id="confirmarSenha" required>
+                                    <button type="submit" class="btn btn-block btn-register"><i
+                                            class="fas fa-user-plus"></i> Cadastrar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
