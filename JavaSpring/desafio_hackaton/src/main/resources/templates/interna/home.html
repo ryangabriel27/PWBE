@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org/">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <a th:href="@{/perfil-usuario/{id_usuario}(id_usuario=${id_usuario})}">meu perfil</a>
+    <a href="/cadastrar-receitas">cadastrar receitas</a>
+    <a href="/listar-receitas">ver receitas</a>
+    <a href="/logout">sair</a>
+    
+</body>
+
+</html>
